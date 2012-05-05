@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505000112) do
+ActiveRecord::Schema.define(:version => 20120505183622) do
+
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "part_of_speeches", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -54,5 +68,26 @@ ActiveRecord::Schema.define(:version => 20120505000112) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "word_histories", :force => true do |t|
+    t.integer  "word_id"
+    t.integer  "user_id"
+    t.string   "part_a"
+    t.string   "part_b"
+    t.string   "part_c"
+    t.string   "part_d"
+    t.string   "part_e"
+    t.string   "part_f"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "words", :force => true do |t|
+    t.integer  "part_of_speech_id"
+    t.integer  "language_id"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
 end
