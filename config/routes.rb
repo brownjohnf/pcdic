@@ -1,5 +1,6 @@
 JackAppBase::Application.routes.draw do
-  resources :part_of_speeches
+
+  resources :part_of_speeches, :path => 'parts_of_speech'
 
   resources :languages
 
@@ -58,7 +59,7 @@ JackAppBase::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'statics#home'
+  root :to => 'languages#index'
 
   # See how all your routes lay out with "rake routes"
 
