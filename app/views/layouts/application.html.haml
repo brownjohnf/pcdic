@@ -2,11 +2,22 @@
   <!DOCTYPE html>
 %html
   %head
-    %title JackAppBase
+    %title Talk To Me!
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    .container
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            .row
+              .span12
+                %a.brand{:href => '/'} Talk To Me!
+                %ul.nav.pull-right
+                  %li= link_to 'Sign in', new_user_session_path unless user_signed_in?
+                  %li= link_to 'Sign up', new_user_registration_path unless user_signed_in?
+                  %li= link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete if user_signed_in?
     .container
       .row
         .span4.offset4
@@ -17,3 +28,8 @@
             .alert.alert-error
               = alert
     = yield
+    .container
+      .row
+        .span12
+          %hr
+          %p This project is brought to you independently by the Volunteers of #{link_to 'Peace Corps Senegal', 'http://www.pcsenegal.org'}. It in no way represents the United States Peace Corps, its staff, or the American people.
