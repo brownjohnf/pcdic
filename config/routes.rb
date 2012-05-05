@@ -1,4 +1,6 @@
 JackAppBase::Application.routes.draw do
+  resources :part_of_speeches
+
   resources :languages
 
   resources :word_histories

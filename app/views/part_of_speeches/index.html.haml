@@ -1,0 +1,21 @@
+%h1 Listing part_of_speeches
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @part_of_speeches.each do |part_of_speech|
+    %tr
+      %td= part_of_speech.name
+      %td= part_of_speech.description
+      %td= link_to 'Show', part_of_speech
+      %td= link_to 'Edit', edit_part_of_speech_path(part_of_speech)
+      %td= link_to 'Destroy', part_of_speech, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Part of speech', new_part_of_speech_path
