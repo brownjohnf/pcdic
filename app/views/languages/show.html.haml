@@ -1,12 +1,9 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @language.name
-%p
-  %b Description:
-  = @language.description
-
-= link_to 'Edit', edit_language_path(@language)
-\|
-= link_to 'Back', languages_path
+.container
+  .row
+    .span4
+      .well
+        %h1= @language.name
+        %p= @language.description
+        %p= pluralize(@language.words.count, 'word')
+    .span8
+      = render @language.words.limit(10)

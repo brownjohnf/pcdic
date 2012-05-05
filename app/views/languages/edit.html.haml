@@ -1,7 +1,7 @@
-%h1 Editing language
-
-= render 'form'
-
-= link_to 'Show', @language
-\|
-= link_to 'Back', languages_path
+.container
+  .row
+    .span4.offset4
+      .well
+        %h1 Edit language
+        = render 'form'
+        %p= link_to 'cancel', languages_path
