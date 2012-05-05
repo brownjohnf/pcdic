@@ -1,4 +1,6 @@
 class LanguagesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /languages
   # GET /languages.json
   def index

@@ -22,9 +22,9 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :user
-      can :create, :all
+      can :create, [ Word, WordHistory ]
       if user.role? :moderator
-        can [ :create, :update ], :all
+        can :manage, [ Word, WordHistory, Language, PartOfSpeech ]
       end
     end
 

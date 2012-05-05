@@ -1,4 +1,6 @@
 class PartOfSpeechesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /part_of_speeches
   # GET /part_of_speeches.json
   def index

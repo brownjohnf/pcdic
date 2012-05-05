@@ -1,4 +1,6 @@
 class WordHistoriesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /word_histories
   # GET /word_histories.json
   def index
