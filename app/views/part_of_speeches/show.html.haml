@@ -1,12 +1,6 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @part_of_speech.name
-%p
-  %b Description:
-  = @part_of_speech.description
-
-= link_to 'Edit', edit_part_of_speech_path(@part_of_speech)
-\|
-= link_to 'Back', part_of_speeches_path
+.container
+  .row
+    .span3
+      .well
+        %h1= @part_of_speech.name
+        %p= @part_of_speech.description

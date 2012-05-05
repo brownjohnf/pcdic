@@ -1,7 +1,7 @@
-%h1 Editing part_of_speech
-
-= render 'form'
-
-= link_to 'Show', @part_of_speech
-\|
-= link_to 'Back', part_of_speeches_path
+.container
+  .row
+    .span4.offset4
+      .well
+        %h1 Edit Part of Speech
+        = render 'form'
+        = link_to 'cancel', @part_of_speech

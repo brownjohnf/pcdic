@@ -1,9 +1,9 @@
 .container
   .row
-    .span4
+    .span3
       .well
         %h1= @language.name
         %p= @language.description
         %p= pluralize(@language.words.count, 'word')
-    .span8
+    .span9
       = render @language.words.limit(10)
