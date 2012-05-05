@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Part of speech:
+  = @word.part_of_speech_id
+%p
+  %b Language:
+  = @word.language_id
+%p
+  %b User:
+  = @word.user_id
+
+= link_to 'Edit', edit_word_path(@word)
+\|
+= link_to 'Back', words_path
