@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  word_id: 1
+  user_id: 1
+  part_a: MyString
+  part_b: MyString
+  part_c: MyString
+  part_d: MyString
+  part_e: MyString
+  part_f: MyString
+
+two:
+  word_id: 1
+  user_id: 1
+  part_a: MyString
+  part_b: MyString
+  part_c: MyString
+  part_d: MyString
+  part_e: MyString
+  part_f: MyString

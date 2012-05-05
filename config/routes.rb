@@ -1,4 +1,6 @@
 JackAppBase::Application.routes.draw do
+  resources :word_histories
+
   resources :words
 
   devise_for :users

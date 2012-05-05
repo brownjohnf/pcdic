@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Word:
+  = @word_history.word_id
+%p
+  %b User:
+  = @word_history.user_id
+%p
+  %b Part a:
+  = @word_history.part_a
+%p
+  %b Part b:
+  = @word_history.part_b
+%p
+  %b Part c:
+  = @word_history.part_c
+%p
+  %b Part d:
+  = @word_history.part_d
+%p
+  %b Part e:
+  = @word_history.part_e
+%p
+  %b Part f:
+  = @word_history.part_f
+
+= link_to 'Edit', edit_word_history_path(@word_history)
+\|
+= link_to 'Back', word_histories_path
