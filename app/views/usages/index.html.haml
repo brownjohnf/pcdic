@@ -1,0 +1,23 @@
+%h1 Listing usages
+
+%table
+  %tr
+    %th Word
+    %th Example
+    %th Priority
+    %th
+    %th
+    %th
+
+  - @usages.each do |usage|
+    %tr
+      %td= usage.word_id
+      %td= usage.example
+      %td= usage.priority
+      %td= link_to 'Show', usage
+      %td= link_to 'Edit', edit_usage_path(usage)
+      %td= link_to 'Destroy', usage, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Usage', new_usage_path

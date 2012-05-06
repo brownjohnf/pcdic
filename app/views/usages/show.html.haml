@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Word:
+  = @usage.word_id
+%p
+  %b Example:
+  = @usage.example
+%p
+  %b Priority:
+  = @usage.priority
+
+= link_to 'Edit', edit_usage_path(@usage)
+\|
+= link_to 'Back', usages_path

@@ -1,5 +1,7 @@
 JackAppBase::Application.routes.draw do
 
+  resources :usages
+
   resources :entries
 
   resources :part_of_speeches, :path => 'parts_of_speech'
