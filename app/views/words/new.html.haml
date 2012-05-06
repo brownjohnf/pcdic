@@ -1,5 +1,7 @@
-%h1 New word
-
-= render 'form'
-
-= link_to 'Back', words_path
+.container
+  .row
+    .span12
+      .well
+        %h1 New word
+        = render 'form'
+        = link_to 'cancel', words_path

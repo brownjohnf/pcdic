@@ -27,6 +27,7 @@ class WordsController < ApplicationController
   # GET /words/new.json
   def new
     @word = Word.new
+    @word.word_histories.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,14 @@ class WordsController < ApplicationController
   # GET /words/1/edit
   def edit
     @word = Word.find(params[:id])
+    @word.word_histories.build(
+      :part_a => @word.word_histories.first.part_a,
+      :part_b => @word.word_histories.first.part_b,
+      :part_c => @word.word_histories.first.part_c,
+      :part_d => @word.word_histories.first.part_d,
+      :part_e => @word.word_histories.first.part_e,
+      :part_f => @word.word_histories.first.part_f
+    )
   end
 
   # POST /words

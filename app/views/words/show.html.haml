@@ -1,15 +1,14 @@
-%p#notice= notice
-
-%p
-  %b Part of speech:
-  = @word.part_of_speech_id
-%p
-  %b Language:
-  = @word.language_id
-%p
-  %b User:
-  = @word.user_id
-
-= link_to 'Edit', edit_word_path(@word)
-\|
-= link_to 'Back', words_path
+.container
+  .row
+    .span3
+      .well
+        %h1= render @word.current
+        %p= @word.part_of_speech.name
+        %p= @word.language.name
+    .span9
+      %p= pluralize(@word.word_histories.count, 'edit')
+      %hr
+      %h3 History
+      - for wh in @word.word_histories
+        %hr
+        = render wh

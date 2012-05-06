@@ -4,7 +4,7 @@ JackAppBase::Application.routes.draw do
 
   resources :languages
 
-  resources :word_histories
+  resources :word_histories, :only => [ :destroy ]
 
   resources :words
 

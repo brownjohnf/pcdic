@@ -1,23 +1,6 @@
-%h1 Listing words
-
-%table
-  %tr
-    %th Part of speech
-    %th Language
-    %th User
-    %th
-    %th
-    %th
-
-  - @words.each do |word|
-    %tr
-      %td= word.part_of_speech_id
-      %td= word.language_id
-      %td= word.user_id
-      %td= link_to 'Show', word
-      %td= link_to 'Edit', edit_word_path(word)
-      %td= link_to 'Destroy', word, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Word', new_word_path
+.container
+  .row
+    .span3
+      %ul.nav.nav-list
+        - for word in Word.limit(20) do
+          %li= link_to word.word_histories.first.part_a, word
