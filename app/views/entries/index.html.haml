@@ -1,0 +1,41 @@
+.container
+  .row
+    .span12
+      %h1 All entries
+      %table.table.table-striped.table-condensed
+        %tr
+          %th Part a
+          %th Part b
+          %th Part c
+          %th Part d
+          %th Part e
+          %th Part f
+          %th Part of speech
+          %th Language
+          %th Primary part
+          %th First form
+          %th Second form
+          %th Third form
+          %th Comments
+          %th
+          %th
+          %th
+
+        - @entries.each do |entry|
+          %tr
+            %td= entry.part_a
+            %td= entry.part_b
+            %td= entry.part_c
+            %td= entry.part_d
+            %td= entry.part_e
+            %td= entry.part_f
+            %td= entry.part_of_speech_id
+            %td= entry.language_id
+            %td= entry.primary_part
+            %td= entry.first_form
+            %td= entry.second_form
+            %td= entry.third_form
+            %td= entry.comments
+            %td= link_to 'Show', entry
+            %td= link_to 'Edit', edit_entry_path(entry)
+            %td= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete

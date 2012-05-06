@@ -12,4 +12,28 @@ class WordHistory < ActiveRecord::Base
 
   default_scope :order => 'created_at DESC'
 
+  def first_format
+    parts = [
+      part_a,
+      part_b,
+      part_c,
+      part_d,
+      part_e,
+      part_f
+      ]
+    self.word.entry.first_form % parts
+  end
+
+  def second_format
+    parts = [
+      part_a,
+      part_b,
+      part_c,
+      part_d,
+      part_e,
+      part_f
+      ]
+    self.word.entry.second_form % parts
+  end
+
 end

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120505183622) do
+ActiveRecord::Schema.define(:version => 20120506125536) do
+
+  create_table "entries", :force => true do |t|
+    t.string   "part_a"
+    t.string   "part_b"
+    t.string   "part_c"
+    t.string   "part_d"
+    t.string   "part_e"
+    t.string   "part_f"
+    t.integer  "part_of_speech_id"
+    t.integer  "language_id"
+    t.string   "primary_part"
+    t.string   "first_form"
+    t.string   "second_form"
+    t.string   "third_form"
+    t.text     "comments"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "name"

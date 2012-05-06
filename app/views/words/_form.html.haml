@@ -3,7 +3,21 @@
   = f.collection_select :language_id, Language.all, :id, :name
   = f.hidden_field :user_id, :value => current_user.id
   = f.fields_for :word_histories do |h|
-    - if h.object.new_record?
+    - if h.object.new_record? && @word.entry
+      = h.hidden_field :user_id, :value => current_user.id
+      - if @word.entry.part_a
+        = h.text_field :part_a, :label => @word.entry.part_a
+      - if @word.entry.part_b
+        = h.text_field :part_b, :label => @word.entry.part_b
+      - if @word.entry.part_c
+        = h.text_field :part_c, :label => @word.entry.part_c
+      - if @word.entry.part_d
+        = h.text_field :part_d, :label => @word.entry.part_d
+      - if @word.entry.part_e
+        = h.text_field :part_e, :label => @word.entry.part_e
+      - if @word.entry.part_f
+        = h.text_field :part_f, :label => @word.entry.part_f
+    - elsif h.object.new_record?
       = h.hidden_field :user_id, :value => current_user.id
       = h.text_field :part_a
       = h.text_field :part_b

@@ -19,4 +19,8 @@ class Word < ActiveRecord::Base
     self.word_histories.first
   end
 
+  def entry
+    Entry.for(self)
+  end
+
 end

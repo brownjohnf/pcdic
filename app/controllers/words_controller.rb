@@ -27,7 +27,6 @@ class WordsController < ApplicationController
   # GET /words/new.json
   def new
     @word = Word.new
-    @word.word_histories.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -55,7 +54,8 @@ class WordsController < ApplicationController
 
     respond_to do |format|
       if @word.save
-        format.html { redirect_to @word, notice: 'Word was successfully created.' }
+        @word.word_histories.build
+        format.html { render action: 'edit', notice: 'Word was successfully initialized.' }
         format.json { render json: @word, status: :created, location: @word }
       else
         format.html { render action: "new" }

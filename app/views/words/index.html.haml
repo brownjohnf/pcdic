@@ -3,4 +3,4 @@
     .span3
       %ul.nav.nav-list
         - for word in Word.limit(20) do
-          %li= link_to word.word_histories.first.part_a, word
+          %li= link_to word.current.first_format, word

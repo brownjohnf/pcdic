@@ -1,0 +1,45 @@
+.container
+  .row
+    .span3
+      .well
+        %h1
+          = @entry.language.name 
+          = @entry.part_of_speech.name.pluralize
+    .span9
+      %p
+        %b Part a:
+        = @entry.part_a
+      %p
+        %b Part b:
+        = @entry.part_b
+      %p
+        %b Part c:
+        = @entry.part_c
+      %p
+        %b Part d:
+        = @entry.part_d
+      %p
+        %b Part e:
+        = @entry.part_e
+      %p
+        %b Part f:
+        = @entry.part_f
+      %p
+        %b Primary part:
+        = @entry.primary_part
+      %p
+        %b First form:
+        = @entry.first_form
+      %p
+        %b Second form:
+        = @entry.second_form
+      %p
+        %b Third form:
+        = @entry.third_form
+      %p
+        %b Comments:
+        = @entry.comments
+
+      = link_to 'Edit', edit_entry_path(@entry)
+      \|
+      = link_to 'Back', entries_path

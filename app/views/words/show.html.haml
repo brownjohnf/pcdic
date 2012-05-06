@@ -6,9 +6,10 @@
         %p= @word.part_of_speech.name
         %p= @word.language.name
     .span9
+      %h1= @word.current.second_format
       %p= pluralize(@word.word_histories.count, 'edit')
       %hr
       %h3 History
       - for wh in @word.word_histories
         %hr
-        = render wh
+        = wh.second_format

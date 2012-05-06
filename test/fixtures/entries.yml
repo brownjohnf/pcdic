@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  part_a: MyString
+  part_b: MyString
+  part_c: MyString
+  part_d: MyString
+  part_e: MyString
+  part_f: MyString
+  part_of_speech_id: 1
+  language_id: 1
+  primary_part: MyString
+  first_form: MyString
+  second_form: MyString
+  third_form: MyString
+  comments: MyText
+
+two:
+  part_a: MyString
+  part_b: MyString
+  part_c: MyString
+  part_d: MyString
+  part_e: MyString
+  part_f: MyString
+  part_of_speech_id: 1
+  language_id: 1
+  primary_part: MyString
+  first_form: MyString
+  second_form: MyString
+  third_form: MyString
+  comments: MyText
