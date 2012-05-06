@@ -1,25 +1,5 @@
 class UsagesController < ApplicationController
-  # GET /usages
-  # GET /usages.json
-  def index
-    @usages = Usage.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @usages }
-    end
-  end
-
-  # GET /usages/1
-  # GET /usages/1.json
-  def show
-    @usage = Usage.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @usage }
-    end
-  end
+  load_and_authorize_resource
 
   # GET /usages/new
   # GET /usages/new.json
@@ -44,7 +24,7 @@ class UsagesController < ApplicationController
 
     respond_to do |format|
       if @usage.save
-        format.html { redirect_to @usage, notice: 'Usage was successfully created.' }
+        format.html { redirect_to @usage.word, notice: 'Usage was successfully created.' }
         format.json { render json: @usage, status: :created, location: @usage }
       else
         format.html { render action: "new" }
@@ -60,7 +40,7 @@ class UsagesController < ApplicationController
 
     respond_to do |format|
       if @usage.update_attributes(params[:usage])
-        format.html { redirect_to @usage, notice: 'Usage was successfully updated.' }
+        format.html { redirect_to @usage.word, notice: 'Usage was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,7 +1,7 @@
-%h1 Editing usage
-
-= render 'form'
-
-= link_to 'Show', @usage
-\|
-= link_to 'Back', usages_path
+.container
+  .row
+    .span4.offset4
+      .well
+        %h1 Edit usage example
+        = render 'form'
+        = link_to 'cancel', @usage.word

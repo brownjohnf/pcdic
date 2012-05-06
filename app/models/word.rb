@@ -9,7 +9,8 @@ class Word < ActiveRecord::Base
   belongs_to :part_of_speech
   belongs_to :language
 
-  has_many :word_histories
+  has_many :word_histories, :dependent => :destroy
+  has_many :usages, :dependent => :destroy
 
   accepts_nested_attributes_for :word_histories, :reject_if => lambda { |a| a[:part_a].blank? }
 
@@ -17,6 +18,18 @@ class Word < ActiveRecord::Base
 
   def current
     self.word_histories.first
+  end
+
+  def first_form
+    current.first_format
+  end
+
+  def second_form
+    current.second_format
+  end
+
+  def third_form
+    current.third_format
   end
 
   def entry

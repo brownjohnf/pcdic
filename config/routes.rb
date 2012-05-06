@@ -1,6 +1,6 @@
 JackAppBase::Application.routes.draw do
 
-  resources :usages
+  resources :usages, :except => [ :index, :show ]
 
   resources :entries
 

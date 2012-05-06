@@ -2,12 +2,17 @@
   .row
     .span3
       .well
-        %h1= render @word.current
+        %h1= @word.first_form
         %p= @word.part_of_speech.name
         %p= @word.language.name
+        %p= pluralize(@word.word_histories.count, 'edit')
     .span9
       %h1= @word.current.second_format
-      %p= pluralize(@word.word_histories.count, 'edit')
+      %h3 Usage
+      - i = 0
+      - for usage in @word.usages do
+        %strong #{i+=1}.
+        = render usage
       %hr
       %h3 History
       - for wh in @word.word_histories
