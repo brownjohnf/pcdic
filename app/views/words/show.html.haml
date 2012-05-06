@@ -8,11 +8,18 @@
         %p= pluralize(@word.word_histories.count, 'edit')
     .span9
       %h1= @word.current.second_format
-      %h3 Usage
-      - i = 0
-      - for usage in @word.usages do
-        %strong #{i+=1}.
-        = render usage
+      - if @word.definitions.any?
+        %h3 Definitions
+        - i = 0
+        - for definition in @word.definitions do
+          %strong #{i+=1}.
+          = render definition
+      - if @word.usages.any?
+        %h3 Usage
+        - i = 0
+        - for usage in @word.usages do
+          %strong #{i+=1}.
+          = render usage
       %hr
       %h3 History
       - for wh in @word.word_histories

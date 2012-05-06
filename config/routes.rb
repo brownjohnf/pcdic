@@ -1,5 +1,7 @@
 JackAppBase::Application.routes.draw do
 
+  resources :definitions, :except => [ :index, :show ]
+
   resources :usages, :except => [ :index, :show ]
 
   resources :entries

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  word_id: 1
+  content: MyString
+  priority: 1
+
+two:
+  word_id: 1
+  content: MyString
+  priority: 1

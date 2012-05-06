@@ -11,6 +11,7 @@ class Word < ActiveRecord::Base
 
   has_many :word_histories, :dependent => :destroy
   has_many :usages, :dependent => :destroy
+  has_many :definitions, :dependent => :destroy
 
   accepts_nested_attributes_for :word_histories, :reject_if => lambda { |a| a[:part_a].blank? }
 
