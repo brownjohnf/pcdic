@@ -1,0 +1,6 @@
+= bootstrap_form_for @relationship do |f|
+  = f.collection_select :word_a_id, Word.all, :id, :first_form
+  = f.collection_select :word_b_id, Word.all, :id, :first_form
+  = f.collection_select :relationship_type_id, RelationshipType.all, :id, :name
+  = f.hidden_field :user_id, :value => current_user.id
+  = f.submit 'Save'

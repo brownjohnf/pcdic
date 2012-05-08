@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506203703) do
+ActiveRecord::Schema.define(:version => 20120508120153) do
 
   create_table "definitions", :force => true do |t|
     t.integer  "word_id"
@@ -68,6 +68,31 @@ ActiveRecord::Schema.define(:version => 20120506203703) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "relationship_types", :force => true do |t|
+    t.string   "name"
+    t.string   "pictogram"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "relationship_types", ["name"], :name => "index_relationship_types_on_name", :unique => true
+  add_index "relationship_types", ["pictogram"], :name => "index_relationship_types_on_pictogram", :unique => true
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "word_a_id"
+    t.integer  "word_b_id"
+    t.integer  "relationship_type_id"
+    t.integer  "user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "relationships", ["relationship_type_id"], :name => "index_relationships_on_relationship_type_id"
+  add_index "relationships", ["word_a_id", "word_b_id", "relationship_type_id"], :name => "my_relation_index", :unique => true
+  add_index "relationships", ["word_a_id"], :name => "index_relationships_on_word_a_id"
+  add_index "relationships", ["word_b_id"], :name => "index_relationships_on_word_b_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

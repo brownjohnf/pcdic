@@ -1,0 +1,10 @@
+.container
+  .row
+    .span9.offset3
+      %p
+        = link_to @relationship.word_a.first_form, @relationship.word_a
+        = @relationship.relationship_type.pictogram
+        = link_to @relationship.word_b.first_form, @relationship.word_b
+      %p
+        Relationship created by
+        = @relationship.user.email

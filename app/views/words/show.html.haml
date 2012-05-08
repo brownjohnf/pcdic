@@ -9,6 +9,14 @@
         %p= pluralize(@word.word_histories.count, 'edit')
     .span9
       %h1= @word.current.second_format
+      - if @word.translations.any?
+        %hr
+        %h3 Translations
+        - i = 0
+        - for translation in @word.translations do
+          %strong #{i+=1}.
+          = link_to child.first_form, child
+          (#{child.language.name})
       - if @word.definitions.any?
         %hr
         %h3 Definitions

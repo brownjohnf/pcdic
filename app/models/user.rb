@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :words
   has_many :word_histories
+  has_many :relationships
 
   has_and_belongs_to_many :roles
   accepts_nested_attributes_for :roles, :allow_destroy => true
