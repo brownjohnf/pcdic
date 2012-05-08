@@ -1,5 +1,5 @@
 class CreateEntries < ActiveRecord::Migration
-  def change
+  def up
     create_table :entries do |t|
       t.string :part_a
       t.string :part_b
@@ -17,5 +17,13 @@ class CreateEntries < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :entries, :part_of_speech_id
+    add_index :entries, :language_id
+    add_index :entries, [ :part_of_speech_id, :language_id ], :unique => true
+  end
+
+  def down
+    drop_table :entries
   end
 end

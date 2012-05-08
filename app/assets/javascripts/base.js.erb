@@ -1,0 +1,15 @@
+$(function(){
+
+  /********************************************/
+  /* usages */
+
+  // usages#new
+  $('.word_typeahead').autocomplete({
+    serviceUrl: '/words.json',
+    onSelect: function(value, data){
+      $('input.word_id_target').val(data);
+      //alert('You selected: ' + value + ', ' + data);
+    }
+  });
+
+});

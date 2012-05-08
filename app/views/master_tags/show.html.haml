@@ -1,0 +1,10 @@
+.container
+  .row
+    .span3
+      .well
+        %h1= @master_tag.en
+        %p= @master_tag.fr
+    .span9
+      %ul
+        - for word in @master_tag.words do
+          %li= link_to word.first_form, word

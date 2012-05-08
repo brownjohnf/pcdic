@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506201608) do
+ActiveRecord::Schema.define(:version => 20120506203703) do
 
   create_table "definitions", :force => true do |t|
     t.integer  "word_id"
@@ -45,6 +45,22 @@ ActiveRecord::Schema.define(:version => 20120506201608) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "master_tags", :force => true do |t|
+    t.string   "en"
+    t.string   "fr"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "master_tags_words", :id => false, :force => true do |t|
+    t.integer "master_tag_id"
+    t.integer "word_id"
+  end
+
+  add_index "master_tags_words", ["master_tag_id", "word_id"], :name => "index_master_tags_words_on_master_tag_id_and_word_id", :unique => true
+  add_index "master_tags_words", ["master_tag_id"], :name => "index_master_tags_words_on_master_tag_id"
+  add_index "master_tags_words", ["word_id"], :name => "index_master_tags_words_on_word_id"
 
   create_table "part_of_speeches", :force => true do |t|
     t.string   "name"
@@ -106,22 +122,22 @@ ActiveRecord::Schema.define(:version => 20120506201608) do
   create_table "word_histories", :force => true do |t|
     t.integer  "word_id"
     t.integer  "user_id"
+    t.integer  "part_of_speech_id"
+    t.integer  "language_id"
     t.string   "part_a"
     t.string   "part_b"
     t.string   "part_c"
     t.string   "part_d"
     t.string   "part_e"
     t.string   "part_f"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "words", :force => true do |t|
-    t.integer  "part_of_speech_id"
-    t.integer  "language_id"
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

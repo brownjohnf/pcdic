@@ -1,5 +1,7 @@
 JackAppBase::Application.routes.draw do
 
+  resources :master_tags
+
   resources :definitions, :except => [ :index, :show ]
 
   resources :usages, :except => [ :index, :show ]

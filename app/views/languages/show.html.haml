@@ -4,6 +4,6 @@
       .well
         %h1= @language.name
         %p= @language.description
-        %p= pluralize(@language.words.count, 'word')
+        %p= pluralize(@language.word_histories.count, 'word')
     .span9
-      = render @language.words.limit(10)
+      = render @language.word_histories.limit(10)

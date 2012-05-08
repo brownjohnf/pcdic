@@ -1,5 +1,7 @@
 = bootstrap_form_for @usage do |f|
-    = f.collection_select :word_id, Word.all, :id, :first_form
-    = f.text_field :example
-    = f.radio_buttons :priority, { :low => 15, :medium => 10, :false => 5}
-    = f.submit 'Save'
+  = text_field :word_typeahead, nil, :placeholder => 'start typing...', :class => 'word_typeahead'
+  = f.hidden_field :word_id, :class => 'word_id_target'
+  -#= f.collection_select :word_id, Word.all, :id, :first_form
+  = f.text_field :example
+  = f.radio_buttons :priority, { :low => 15, :medium => 10, :false => 5}
+  = f.submit 'Save'

@@ -3,18 +3,21 @@
     .span3
       .well
         %h1= @word.first_form
-        %p= @word.part_of_speech.name
-        %p= @word.language.name
+        %p= link_to @word.part_of_speech.name, @word.part_of_speech
+        %p= link_to @word.language.name, @word.language
+        %p= render @word.master_tags
         %p= pluralize(@word.word_histories.count, 'edit')
     .span9
       %h1= @word.current.second_format
       - if @word.definitions.any?
+        %hr
         %h3 Definitions
         - i = 0
         - for definition in @word.definitions do
           %strong #{i+=1}.
           = render definition
       - if @word.usages.any?
+        %hr
         %h3 Usage
         - i = 0
         - for usage in @word.usages do
@@ -23,5 +26,5 @@
       %hr
       %h3 History
       - for wh in @word.word_histories
-        %hr
         = wh.second_format
+        %br

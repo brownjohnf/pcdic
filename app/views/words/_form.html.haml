@@ -1,10 +1,10 @@
 = bootstrap_form_for @word do |f|
-  = f.collection_select :part_of_speech_id, PartOfSpeech.all, :id, :name
-  = f.collection_select :language_id, Language.all, :id, :name
   = f.hidden_field :user_id, :value => current_user.id
   = f.fields_for :word_histories do |h|
     - if h.object.new_record? && @word.entry
       = h.hidden_field :user_id, :value => current_user.id
+      = h.collection_select :language_id, Language.all, :id, :name
+      = h.collection_select :part_of_speech_id, PartOfSpeech.all, :id, :name
       - if @word.entry.part_a
         = h.text_field :part_a, :label => @word.entry.part_a
       - if @word.entry.part_b
@@ -19,6 +19,8 @@
         = h.text_field :part_f, :label => @word.entry.part_f
     - elsif h.object.new_record?
       = h.hidden_field :user_id, :value => current_user.id
+      = h.collection_select :language_id, Language.all, :id, :name
+      = h.collection_select :part_of_speech_id, PartOfSpeech.all, :id, :name
       = h.text_field :part_a
       = h.text_field :part_b
       = h.text_field :part_c
@@ -27,4 +29,13 @@
       = h.text_field :part_f
     - else
       = nil
+  %hr
+  = f.fields_for :definitions do |d|
+    = d.text_field :content, :label => 'Primary definition'
+    = d.radio_buttons :priority, { :low => 15, :medium => 10, :high => 5 }, :label => 'Definition priority'
+  %hr
+  = f.fields_for :usages do |u|
+    = u.text_field :example, :label => 'Example usage'
+    = u.radio_buttons :priority, { :low => 15, :medium => 10, :high => 5 }, :label => 'Usage priority'
+  = f.collection_check_boxes :master_tag_ids, MasterTag.all, :id, :en, :label => 'Tags'
   = f.submit 'Save'

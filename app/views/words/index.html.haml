@@ -1,6 +1,8 @@
 .container
   .row
-    .span3
-      %ul.nav.nav-list
-        - for word in Word.limit(20) do
-          %li= link_to word.current.first_format, word
+    - for language in Language.all do
+      .span3
+        %h1= language.name
+        %ul.nav.nav-list
+          - for wh in WordHistory.unscoped.select(:word_id).where(:language_id => language.id).order('part_b ASC').uniq
+            %li= link_to wh.word.index, wh.word

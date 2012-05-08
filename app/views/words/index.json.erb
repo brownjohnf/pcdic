@@ -1,0 +1,13 @@
+{
+  query: '<%= params[:query] %>',
+  suggestions: [
+  <% for word in @words do %>
+    '<%= word.first_form %>',
+  <% end %>
+  ],
+  data: [
+  <% for word in @words do %>
+    <%= word.id %>,
+  <% end %>
+  ]
+}

@@ -3,6 +3,8 @@ class CreateWordHistories < ActiveRecord::Migration
     create_table :word_histories do |t|
       t.integer :word_id
       t.integer :user_id
+      t.integer :part_of_speech_id
+      t.integer :language_id
       t.string :part_a
       t.string :part_b
       t.string :part_c

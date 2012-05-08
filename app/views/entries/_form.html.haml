@@ -1,13 +1,13 @@
 = bootstrap_form_for @entry do |f|
-  = f.collection_select :part_of_speech_id, PartOfSpeech.all, :id, :name
   = f.collection_select :language_id, Language.all, :id, :name
+  = f.collection_select :part_of_speech_id, PartOfSpeech.all, :id, :name
   = f.text_field :part_a
   = f.text_field :part_b
   = f.text_field :part_c
   = f.text_field :part_d
   = f.text_field :part_e
   = f.text_field :part_f
-  = f.select :primary_part, ['A','B','C','D','E','F']
+  = f.select :primary_part, ['part_a','part_b','part_c','part_d','part_e','part_f']
   = f.text_field :first_form
   = f.text_field :second_form
   = f.text_field :third_form

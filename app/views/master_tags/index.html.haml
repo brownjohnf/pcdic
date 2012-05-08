@@ -1,0 +1,21 @@
+.container
+  .row
+    .span3
+      %h1 Tags
+      = render 'menu'
+    .span9
+      %table.table.table-condensed.table-striped
+        %tr
+          %th En
+          %th Fr
+          %th
+          %th
+          %th
+
+        - @master_tags.each do |master_tag|
+          %tr
+            %td= master_tag.en
+            %td= master_tag.fr
+            %td= link_to 'Show', master_tag
+            %td= link_to 'Edit', edit_master_tag_path(master_tag)
+            %td= link_to 'Destroy', master_tag, :confirm => 'Are you sure?', :method => :delete

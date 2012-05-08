@@ -4,11 +4,9 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index
-    @words = Word.all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @words }
+      format.json 
     end
   end
 
@@ -27,6 +25,9 @@ class WordsController < ApplicationController
   # GET /words/new.json
   def new
     @word = Word.new
+    @wh = @word.word_histories.build
+    @word.definitions.build
+    @word.usages.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,8 @@ class WordsController < ApplicationController
   def edit
     @word = Word.find(params[:id])
     @word.word_histories.build(
+      :language_id => @word.current.language_id,
+      :part_of_speech_id => @word.current.part_of_speech_id,
       :part_a => @word.word_histories.first.part_a,
       :part_b => @word.word_histories.first.part_b,
       :part_c => @word.word_histories.first.part_c,
@@ -54,8 +57,7 @@ class WordsController < ApplicationController
 
     respond_to do |format|
       if @word.save
-        @word.word_histories.build
-        format.html { render action: 'edit', notice: 'Word was successfully initialized.' }
+        format.html { redirect_to @word, notice: 'Word was successfully initialized.' }
         format.json { render json: @word, status: :created, location: @word }
       else
         format.html { render action: "new" }
